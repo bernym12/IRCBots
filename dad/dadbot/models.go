@@ -71,7 +71,8 @@ type IRCBot struct {
 
 // GroupMeBot is an extension of adammohammed's GroupMeBot
 type GroupMeBot struct {
-	Bot *groupmebot.GroupMeBot
+	Bot           *groupmebot.GroupMeBot
+	BotConfigFile string
 }
 
 // IRCBotInterface is a temporary place-holder

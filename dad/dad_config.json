@@ -9,7 +9,7 @@
             "Response": [
                 {
                     "Message": "That's it, you're grounded #c!",
-                    "Count": 42,
+                    "Count": 43,
                     "Type": 0
                 }
             ]
@@ -37,7 +37,7 @@
             "Response": [
                 {
                     "Message": "#c, you're now ungrounded. Don't let me catch you misbehaving again.",
-                    "Count": 24,
+                    "Count": 25,
                     "Type": 0
                 }
             ]
@@ -149,7 +149,7 @@
             "Response": [
                 {
                     "Message": "#v",
-                    "Count": 4,
+                    "Count": 5,
                     "Type": 9
                 }
             ]
@@ -184,7 +184,7 @@
             "Response": [
                 {
                     "Message": "Here is a list of grounded users:\n#c",
-                    "Count": 36,
+                    "Count": 39,
                     "Type": 0
                 }
             ]
@@ -231,7 +231,7 @@
             "Response": [
                 {
                     "Message": "Hi #v, I'm dad",
-                    "Count": 1440,
+                    "Count": 1441,
                     "Type": 0
                 }
             ]
