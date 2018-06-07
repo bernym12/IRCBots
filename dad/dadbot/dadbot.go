@@ -38,9 +38,11 @@ var AdminTrigger = hbot.Trigger{
 	},
 }
 
-// Irc is the global variable that tracks any common, constant values between
-// the two bots. This is only accessed once at startup by each bot
+// Irc is the global variable that controls the entire IRC Bot.
 var Irc IRCBot
+
+// GroupMe is the global variable that controls the entire GroupMe Bot.
+var GroupMe GroupMeBot
 
 // Run starts an instance of the bot, with variable dad indicating whether
 // the bot should behave like a dad or a mom

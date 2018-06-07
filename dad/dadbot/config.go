@@ -8,8 +8,13 @@ import (
 	// log "gopkg.in/inconshreveable/log15.v2"
 )
 
+// LoadHooks reads in regex and their corresponding responses from
+// the given config file and loads them up as hooks for a GroupMeBot
 func (gb *GroupMeBot) LoadHooks(botFileName string) {
-
+	config := readBotConfiguration(botFileName)
+	for _, hook := range config.Speak {
+		gb.Bot.AddHook(hook.Regex.Trigger, genericResponse)
+	}
 }
 
 // ReadConfig reads each config file and returns a struct of each
