@@ -3,6 +3,7 @@ package dad
 import (
 	"time"
 
+	"github.com/adammohammed/groupmebot"
 	"github.com/whyrusleeping/hellabot"
 )
 
@@ -66,6 +67,11 @@ type IRCBot struct {
 	IRCConfigFile string
 	CurrentReply  Reply
 	LastReply     Reply
+}
+
+// GroupMeBot is an extension of adammohammed's GroupMeBot
+type GroupMeBot struct {
+	Bot *groupmebot.GroupMeBot
 }
 
 // IRCBotInterface is a temporary place-holder
