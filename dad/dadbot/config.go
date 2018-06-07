@@ -8,38 +8,45 @@ import (
 	// log "gopkg.in/inconshreveable/log15.v2"
 )
 
+func (gb *GroupMeBot) LoadHooks(botFileName string) {
+
+}
+
 // ReadConfig reads each config file and returns a struct of each
 func (ib *IRCBot) ReadConfig(ircFileName, botFileName, mutedFileName string) {
-	ib.readIrcConfiguration(ircFileName)
-	ib.readBotConfiguration(botFileName)
-	ib.readMutedList(mutedFileName)
+	ib.IRCConfig = readIrcConfiguration(ircFileName)
+	ib.BotConfig = readBotConfiguration(botFileName)
+	ib.Muted = readMutedList(mutedFileName)
 }
 
-func (ib *IRCBot) readIrcConfiguration(fileName string) {
+func readIrcConfiguration(fileName string) IRCConfiguration {
 	file, _ := os.Open(fileName)
 	defer file.Close()
 	decoder := json.NewDecoder(file)
-	ib.IRCConfig = IRCConfiguration{}
-	err := decoder.Decode(&ib.IRCConfig)
+	config := IRCConfiguration{}
+	err := decoder.Decode(&config)
 	checkErr(err)
+	return config
 }
 
-func (ib *IRCBot) readBotConfiguration(fileName string) {
+func readBotConfiguration(fileName string) BotConfiguration {
 	file, _ := os.Open(fileName)
 	defer file.Close()
 	decoder := json.NewDecoder(file)
-	ib.BotConfig = BotConfiguration{}
-	err := decoder.Decode(&ib.BotConfig)
+	config := BotConfiguration{}
+	err := decoder.Decode(&config)
 	checkErr(err)
+	return config
 }
 
-func (ib *IRCBot) readMutedList(fileName string) {
+func readMutedList(fileName string) MutedList {
 	file, _ := os.Open(fileName)
 	defer file.Close()
 	decoder := json.NewDecoder(file)
-	ib.Muted = MutedList{}
-	err := decoder.Decode(&ib.Muted)
+	config := MutedList{}
+	err := decoder.Decode(&config)
 	checkErr(err)
+	return config
 }
 
 // UpdateBotConfig parses the existing bot configuration data into
