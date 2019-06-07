@@ -3,6 +3,7 @@
 import random
 import re
 import json
+import os.path
 
 from twisted.words.protocols import irc
 from twisted.internet import reactor, protocol
@@ -37,6 +38,10 @@ class theMagicConch(irc.IRCClient):
         self.__channel = channel
         print("Channel: " + self.__channel)
         print("Nick: " + self.nickname)
+
+        if not os.path.exists("ignore_list.txt"):
+            print "ignore_list.txt not found, creating an empty one..."
+            open("ignore_list.txt", 'w').close()
 
         with open("ignore_list.txt", 'r') as infile:
             for each in infile:
